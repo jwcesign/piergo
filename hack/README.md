@@ -61,14 +61,14 @@ and builds the AMD64 image once. Pushes to `main` and manual runs with `publish`
 enabled push that build to `public.ecr.aws/cloudpilotai/piergo-codex:<tag>`.
 The default tag is `sha-<12-character-commit>`.
 
-The credentials and registry follow the CloudPilot repository's
-`.github/workflows/cloudpilot-latest-build.yaml`. Configure the same Actions
-secrets for this repository:
+The login command and registry follow the CloudPilot repository's
+`.github/workflows/cloudpilot-latest-build.yaml`. This repository uses the
+following Actions secret names:
 
 | Setting | Type | Purpose |
 | --- | --- | --- |
-| `AWS_AK` | Secret | AWS access key |
-| `AWS_SK` | Secret | AWS secret key |
+| `AWS_ACCESS_KEY_ID` | Secret | AWS access key |
+| `AWS_SECRET_ACCESS_KEY` | Secret | AWS secret key |
 
 Authentication uses `aws ecr-public get-login-password --region us-east-1`,
 matching CloudPilot's ECR Public login. The `piergo-codex` repository must

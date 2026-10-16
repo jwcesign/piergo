@@ -70,8 +70,8 @@ jobs:
       - name: Log in to Amazon ECR Public
         if: env.PUBLISH == 'true'
         env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_AK }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SK }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: us-east-2
         run: |
           aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/cloudpilotai
